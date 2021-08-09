@@ -1,0 +1,90 @@
+// Most of this code is not actually required for the stepper.
+// Required and optional styles are explicitly noted.
+
+// Global variables (optional)
+$font-color-primary: #221F4D;
+$font-color-secondary: #516F90;
+$accent-color-primary: #FDA94E;
+$accent-color-secondary: #B7CFFA;
+$font-family-default: 'Open Sans', sans-serif;
+$font-weight-regular: 400;
+$font-weight-semi-bold: 600;
+$font-family-icon: 'Font Awesome 5 Free';
+$icon-style-regular: 400;
+$icon-style-solid: 600;
+$icon-check-circle: '\f058';
+
+// Global styles (optional)
+
+// Stepper styles (required)
+.stepper
+{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.step
+{
+  flex-basis: 0;
+  flex-grow: 2;
+  text-align: center;
+  
+  &:first-of-type
+  {
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  &:last-of-type
+  {
+    flex-grow: 1;
+    text-align: right;
+  }
+}
+
+// Stepper styles (optional)
+.step
+{
+  &::before
+  {
+    content: $icon-check-circle;
+    display: block;
+    font-family: $font-family-icon;
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+  
+  &.past
+  {
+    &::before
+    {
+      font-weight: $icon-style-solid;
+      color: $accent-color-primary;
+    }
+  }
+  
+  &.current
+  {
+    font-weight: $font-weight-semi-bold;
+
+    &::before
+    {
+      color: $accent-color-primary;
+      opacity: 1;
+    }
+  }
+  
+  &.future
+  {
+    color: $font-color-secondary;
+
+    &::before
+    {
+      font-weight: $icon-style-regular;
+      color: $accent-color-secondary;
+    }
+  }
+}
